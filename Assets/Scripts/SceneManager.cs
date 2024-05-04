@@ -36,7 +36,7 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
     /// <summary> Transition scene to menu and transition music </summary>
     public void LaunchMenu()
     {
-        // MusicManager.Instance.TransitionToMenu();
+        MusicManager.Instance.TransitionToMenu();
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
         SceneManager.Instance.state = GameState.Menu;
     }
@@ -44,7 +44,7 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
     /// <summary> Transition scene to main game and transition music </summary>
     public void LaunchMain()
     {
-        // MusicManager.Instance.TransitionToMain();
+        MusicManager.Instance.TransitionToMain();
         UnityEngine.SceneManagement.SceneManager.LoadScene("WipLevel");
         SceneManager.Instance.state = GameState.Main;
     }
@@ -52,7 +52,7 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
     /// <summary> Transition scene to game over and transition music </summary>
     public void LaunchGameOver()
     {
-        // MusicManager.Instance.TransitionToGameOver();
+        MusicManager.Instance.TransitionToGameOver();
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
         SceneManager.Instance.state = GameState.GameOver;
     }

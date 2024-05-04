@@ -30,8 +30,6 @@ public class MusicManager : MonoBehaviourSingleton<MusicManager>
     private AudioSource finishingMusic;
     private AudioSource currentMusic;
 
-    private AudioMixerSnapshot pauseSnapshot;
-    private AudioMixerSnapshot normalSnapshot;
 
     /// ========================================
     /// UNITY METHODS
@@ -47,8 +45,6 @@ public class MusicManager : MonoBehaviourSingleton<MusicManager>
         this.menuMusic.volume = 0;
         this.gameOverMusic.volume = 0;
         this.currentMusic = gameOverMusic;
-        this.pauseSnapshot = this.masterMixer.FindSnapshot("Pause");
-        this.normalSnapshot = this.masterMixer.FindSnapshot("Normal");
     }
 
 
@@ -85,24 +81,6 @@ public class MusicManager : MonoBehaviourSingleton<MusicManager>
         this.currentMusic = this.gameOverMusic;
         this.CrossFade(this.finishingMusic, this.currentMusic, 1f, 1f);
     }
-
-    /// <summary>
-    /// Load the pause snapshot to pause the sounds
-    /// </summary>
-    public void PauseSounds()
-    {
-        this.pauseSnapshot.TransitionTo(0.001f);
-    }
-
-    /// <summary>
-    /// Load the normal snapshot to resume the sounds
-    /// </summary>
-    public void ResumeSounds()
-    {
-        this.normalSnapshot.TransitionTo(0.001f);
-    }
-
-
 
 
     /*
