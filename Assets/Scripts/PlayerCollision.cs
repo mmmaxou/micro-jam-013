@@ -42,7 +42,7 @@ public class PlayerCollision : MonoBehaviour
             Vector3 coordinates = contact.point;
             Vector3 direction = coordinates - this.gameObject.transform.position;
             Vector3 scaledDirection = direction * 0.1f;
-            collision.gameObject.GetComponent<TileModifier>().DigHole(coordinates + scaledDirection);
+            collision.gameObject.GetComponent<TileModifier>()?.DigHole(coordinates + scaledDirection);
         }
     }
 
