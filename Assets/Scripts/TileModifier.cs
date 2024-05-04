@@ -10,10 +10,10 @@ public class TileModifier : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-    void DigHole(Vector3 collision)
+    public void DigHole(Vector3 collision)
     {
         Tilemap grid = GetComponent<Tilemap>();
         if (grid == null)

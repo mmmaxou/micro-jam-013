@@ -37,6 +37,7 @@ public class PlayerCollision : MonoBehaviour
         }
 
         // change the collided tile on the tilemap
-        collision.gameObject.GetComponent<TileModifier>().ChangeTile(collision.contacts[0]);
+        Vector3 coordinates = collision.GetContact(0).point;
+        collision.gameObject.GetComponent<TileModifier>().DigHole(coordinates);
     }
 }
