@@ -23,21 +23,27 @@ public class PlayerCollision : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Sent when an incoming collider makes contact with this object's
-    /// collider (2D physics only).
-    /// </summary>
-    /// <param name="collision">The Collision2D data associated with this collision.</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ContactPoint2D[] contacts = new ContactPoint2D[collision.contactCount]; ;
-        collision.GetContacts(contacts);
+        EatMud(collision);
+    }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        EatMud(collision);
+    }
+
+    private void EatMud(Collision2D collision)
+    {
+        ContactPoint2D[] contacts = new ContactPoint2D[collision.contactCount];
+        collision.GetContacts(contacts);
         foreach (ContactPoint2D contact in contacts)
         {
             Vector3 coordinates = contact.point;
-            collision.gameObject.GetComponent<TileModifier>().DigHole(coordinates);
+            Vector3 direction = coordinates - this.gameObject.transform.position;
+            Vector3 scaledDirection = direction * 0.1f;
+            collision.gameObject.GetComponent<TileModifier>().DigHole(coordinates + scaledDirection);
         }
-
     }
+
 }
