@@ -45,7 +45,7 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
     public void LaunchMain()
     {
         // MusicManager.Instance.TransitionToMain();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("WipLevel");
         SceneManager.Instance.state = GameState.Main;
     }
 

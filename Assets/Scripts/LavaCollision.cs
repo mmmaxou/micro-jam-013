@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class LavaCollision : MonoBehaviour
@@ -21,6 +22,7 @@ public class LavaCollision : MonoBehaviour
         if (collision.gameObject.name == "House")
         {
             Debug.Log("collide with house");
+            SceneManager.Instance.LaunchGameOver();
         }
         if (collision.gameObject.name == "Forge")
         {
