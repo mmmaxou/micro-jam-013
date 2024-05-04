@@ -77,10 +77,16 @@ public class PlayerCollision : MonoBehaviour
         collision.GetContacts(contacts);
         foreach (ContactPoint2D contact in contacts)
         {
-            Vector3 coordinates = contact.point;
-            Vector3 direction = coordinates - this.gameObject.transform.position;
-            Vector3 scaledDirection = direction * 0.1f;
-            collision.gameObject.GetComponent<TileModifier>()?.DigHole(coordinates + scaledDirection);
+            if (GameManager.Instance.NbRock < GameManager.Instance.MaxNbRock)
+            {
+                Vector3 coordinates = contact.point;
+                Vector3 direction = coordinates - this.gameObject.transform.position;
+                Vector3 scaledDirection = direction * 0.1f;
+                collision.gameObject.GetComponent<TileModifier>()?.DigHole(coordinates + scaledDirection);
+                GameManager.Instance.NbRock++;
+            }
+            else
+                break;
         }
     }
 
