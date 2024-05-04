@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LavaParticule : MonoBehaviour
@@ -13,6 +14,7 @@ public class LavaParticule : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (this.transform.position.y < 0)
+            Object.Destroy(this.gameObject);
     }
 }
