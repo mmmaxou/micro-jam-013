@@ -21,12 +21,11 @@ public class LavaCollision : MonoBehaviour
     {
         if (collision.gameObject.name == "House")
         {
-            Debug.Log("collide with house");
             SceneManager.Instance.LaunchGameOver();
         }
         if (collision.gameObject.name == "Forge")
         {
-            Debug.Log("collide with forge");
+            SceneManager.Instance.LaunchGameEnding();
         }
     }
 

@@ -9,16 +9,12 @@ using UnityEngine.Audio;
 public class MusicManager : MonoBehaviourSingleton<MusicManager>
 {
 
-
-    /// ========================================
-    /// ATTRIBUTES
-    /// ========================================
-
     public AudioMixer masterMixer;
 
     public AudioSource mainMusic;
     public AudioSource menuMusic;
     public AudioSource gameOverMusic;
+    public AudioSource gameEndingMusic;
 
     /// <summary> Time in seconds the crossfade takes to transition </summary>
     public float crossfadeTime = 5f;
@@ -35,9 +31,6 @@ public class MusicManager : MonoBehaviourSingleton<MusicManager>
     /// UNITY METHODS
     /// ========================================
 
-    /// <summary>
-    /// Setup the variables
-    /// </summary>
     new protected void Awake()
     {
         base.Awake();
@@ -52,9 +45,6 @@ public class MusicManager : MonoBehaviourSingleton<MusicManager>
     /// PUBLIC METHODS
     /// ========================================
 
-    /// <summary>
-    /// Transition the music played smoothly to the main music
-    /// </summary>
     public void TransitionToMain()
     {
         this.finishingMusic = this.currentMusic;
@@ -62,9 +52,6 @@ public class MusicManager : MonoBehaviourSingleton<MusicManager>
         this.CrossFade(this.finishingMusic, this.currentMusic, 1f);
     }
 
-    /// <summary>
-    /// Transition the music played smoothly to the menu music
-    /// </summary>
     public void TransitionToMenu()
     {
         this.finishingMusic = this.currentMusic;
@@ -72,9 +59,6 @@ public class MusicManager : MonoBehaviourSingleton<MusicManager>
         this.CrossFade(this.finishingMusic, this.currentMusic, 1f);
     }
 
-    /// <summary>
-    /// Transition the music played smoothly to the game over music
-    /// </summary>
     public void TransitionToGameOver()
     {
         this.finishingMusic = this.currentMusic;
@@ -82,6 +66,12 @@ public class MusicManager : MonoBehaviourSingleton<MusicManager>
         this.CrossFade(this.finishingMusic, this.currentMusic, 1f, 1f);
     }
 
+    public void TransitionToGameEnding()
+    {
+        this.finishingMusic = this.currentMusic;
+        this.currentMusic = this.gameEndingMusic;
+        this.CrossFade(this.finishingMusic, this.currentMusic, 1f);
+    }
 
     /*
 

@@ -50,7 +50,6 @@ public class PlayerCollision : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Pressed left-click.");
             this.ChangeMudState();
         }
     }

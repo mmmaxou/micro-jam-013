@@ -8,14 +8,10 @@ public enum GameState
 {
     Menu,
     Main,
-    GameOver
+    GameOver,
+    GameEnding
 }
 
-/// <summary>
-/// Control the current scene of the game.
-/// This class is a Monobehavior instanciated in the __app prefab in the __app scene that should always be loaded
-/// Make sure your scene contains the prefab DevPreload to load it
-/// </summary>
 public class SceneManager : MonoBehaviourSingleton<SceneManager>
 {
 
@@ -28,12 +24,21 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
         this.LaunchMenu();
     }
 
-    /// ========================================
-    /// PUBLIC METHODS
-    /// ========================================
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Debug.Log("W key pressed");
+            LaunchGameEnding();
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("L key pressed");
+            LaunchGameOver();
+        }
+    }
 
 
-    /// <summary> Transition scene to menu and transition music </summary>
     public void LaunchMenu()
     {
         MusicManager.Instance.TransitionToMenu();
@@ -41,8 +46,7 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
         SceneManager.Instance.state = GameState.Menu;
     }
 
-    /// <summary> Transition scene to main game and transition music </summary>
-    public void LaunchMain()
+    public void LaunchWipLevel()
     {
         MusicManager.Instance.TransitionToMain();
         UnityEngine.SceneManagement.SceneManager.LoadScene("WipLevel");
@@ -50,12 +54,34 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
         GameManager.Instance.NbRock = 0;
     }
 
-    /// <summary> Transition scene to game over and transition music </summary>
+    public void LaunchLevel01()
+    {
+        MusicManager.Instance.TransitionToMain();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level01");
+        SceneManager.Instance.state = GameState.Main;
+        GameManager.Instance.NbRock = 0;
+    }
+
+    public void LaunchLevel02()
+    {
+        MusicManager.Instance.TransitionToMain();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level02");
+        SceneManager.Instance.state = GameState.Main;
+        GameManager.Instance.NbRock = 0;
+    }
+
     public void LaunchGameOver()
     {
         MusicManager.Instance.TransitionToGameOver();
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
         SceneManager.Instance.state = GameState.GameOver;
+    }
+
+    public void LaunchGameEnding()
+    {
+        MusicManager.Instance.TransitionToGameEnding();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameEnding");
+        SceneManager.Instance.state = GameState.GameEnding;
     }
 
     /// <summary> Quit the game abruptly </summary>

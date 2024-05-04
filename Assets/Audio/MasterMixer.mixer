@@ -107,6 +107,7 @@ AudioMixerController:
     - db58cbfc033d7ad41bab274c775bcd28
     - c7971f9c6042e14448c37019a17ed430
     - 3c23f2639ac2e4d4f8793d7174057133
+    - eea5b723e67a8f645932fa78ca6ec68a
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -123,6 +124,7 @@ AudioMixerGroupController:
   - {fileID: -2988607689407831614}
   - {fileID: -3087389974068666138}
   - {fileID: -869654561018382298}
+  - {fileID: 4163838470000728590}
   m_Volume: 8767d2bbddfd1f44a9faa67710d11f50
   m_Pitch: f77b7847983ee674689447e2b38da9a7
   m_Send: 00000000000000000000000000000000
@@ -160,6 +162,39 @@ AudioMixerSnapshotController:
     247c52a54bb4a7e438233ae388683077: 6
     8767d2bbddfd1f44a9faa67710d11f50: -12
   m_TransitionOverrides: {}
+--- !u!243 &4163838470000728590
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GameEnding
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: eea5b723e67a8f645932fa78ca6ec68a
+  m_Children: []
+  m_Volume: 3045862989f9d13459742da81c161d3c
+  m_Pitch: eea0fd2ca86ccde43ab677d0443ebc27
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 5990477073518311979}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &5990477073518311979
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 3fec51e5c4a5f964bbc6a17a00b0a6be
+  m_EffectName: Attenuation
+  m_MixLevel: 2a632646a1c21734ca4641bff50998bd
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &8549287095404545081
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
