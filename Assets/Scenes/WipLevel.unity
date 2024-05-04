@@ -55864,6 +55864,10 @@ PrefabInstance:
       propertyPath: CounterText
       value: 
       objectReference: {fileID: 2034430231}
+    - target: {fileID: 3912405856769916641, guid: 8544a8210b30aad499c32a96793bcf5a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8154816819774301298, guid: 8544a8210b30aad499c32a96793bcf5a, type: 3}
       propertyPath: m_Name
       value: UI
