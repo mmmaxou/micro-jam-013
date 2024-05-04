@@ -47,6 +47,7 @@ public class SceneManager : MonoBehaviourSingleton<SceneManager>
         MusicManager.Instance.TransitionToMain();
         UnityEngine.SceneManagement.SceneManager.LoadScene("WipLevel");
         SceneManager.Instance.state = GameState.Main;
+        GameManager.Instance.NbRock = 0;
     }
 
     /// <summary> Transition scene to game over and transition music </summary>

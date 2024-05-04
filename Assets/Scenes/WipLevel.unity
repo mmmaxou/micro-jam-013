@@ -169,11 +169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4181844077701981668, guid: 15e1a533f08162b478b023157ec16be9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4181844077701981668, guid: 15e1a533f08162b478b023157ec16be9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4181844077701981668, guid: 15e1a533f08162b478b023157ec16be9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55892,7 +55892,7 @@ GameObject:
   - component: {fileID: 1779148643}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Untagged
+  m_TagString: GridTop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70429,6 +70429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429df8ea9e5ec244d93f5f70c488185a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dugTile: {fileID: 0}
+  fullTile: {fileID: 11400000, guid: 42f805292872bce4a8a3ba96f33ba09f, type: 2}
 --- !u!114 &2034430231 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2573634878888057180, guid: 8544a8210b30aad499c32a96793bcf5a, type: 3}
