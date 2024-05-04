@@ -7,6 +7,8 @@ public class InputWorm : MonoBehaviour
 {
   private AudioSource audioSource;
   private bool hasBeenReleased = true;
+  private float lastMoveTime = 0;
+  private float MOVE_COOL_DOWN = 0.3f;
 
   // Start is called before the first frame update
   void Start()
@@ -25,12 +27,13 @@ public class InputWorm : MonoBehaviour
           // Moving.
           transform.position = transform.position + new Vector3(moveHorizontal, 0, 0);
           audioSource.Play();
+          lastMoveTime = Time.time;
           hasBeenReleased = false;
         }
       }
 
       // Reset input if buttons are released.
-      if (Input.GetAxisRaw("Horizontal") == 0)
+      if (/*Input.GetAxisRaw("Horizontal") == 0 || */(Time.time - lastMoveTime) > MOVE_COOL_DOWN)
       {
         hasBeenReleased = true;
       }
