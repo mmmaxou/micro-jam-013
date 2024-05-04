@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class RockStockUI : MonoBehaviour
+public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-    public Text CounterText;
+    public int NbRock = 0;
+    public int MaxNbRock = 100;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,6 @@ public class RockStockUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CounterText.text = GameManager.Instance.NbRock.ToString() + " / " + GameManager.Instance.MaxNbRock.ToString();
+        
     }
 }
