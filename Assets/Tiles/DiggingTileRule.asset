@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: DiggingTileRule
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 0}
+  m_DefaultSprite: {fileID: 367477310, guid: 380c31fc0d293d8439901cd82e37f398, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
@@ -280,7 +280,7 @@ MonoBehaviour:
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.491
-    m_Output: 1
+    m_Output: 0
     m_ColliderType: 1
     m_RandomTransform: 5
     m_Neighbors: 01000000010000000100000001000000

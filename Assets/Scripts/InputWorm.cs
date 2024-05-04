@@ -12,30 +12,33 @@ public class InputWorm : MonoBehaviour
 
   // Start is called before the first frame update
   void Start()
-    {
-      audioSource = GetComponent<AudioSource>();
-    }
+  {
+    audioSource = GetComponent<AudioSource>();
+  }
 
-    // Update is called once per frame
-    void Update()
+  // Update is called once per frame
+  void Update()
+  {
+    if (hasBeenReleased)
     {
-      if (hasBeenReleased)
+      float moveHorizontal = Input.GetAxisRaw("Horizontal");
+      if (moveHorizontal != 0)
       {
-        float moveHorizontal = Input.GetAxisRaw("Horizontal");
-        if (moveHorizontal != 0)
-        {
-          // Moving.
-          transform.position = transform.position + new Vector3(moveHorizontal, 0, 0);
+        // Moving.
+        transform.position = transform.position + new Vector3(moveHorizontal, 0, 0);
+
+        if (audioSource)
           audioSource.Play();
-          lastMoveTime = Time.time;
-          hasBeenReleased = false;
-        }
-      }
 
-      // Reset input if buttons are released.
-      if (/*Input.GetAxisRaw("Horizontal") == 0 || */(Time.time - lastMoveTime) > MOVE_COOL_DOWN)
-      {
-        hasBeenReleased = true;
+        lastMoveTime = Time.time;
+        hasBeenReleased = false;
       }
     }
+
+    // Reset input if buttons are released.
+    if (/*Input.GetAxisRaw("Horizontal") == 0 || */(Time.time - lastMoveTime) > MOVE_COOL_DOWN)
+    {
+      hasBeenReleased = true;
+    }
+  }
 }

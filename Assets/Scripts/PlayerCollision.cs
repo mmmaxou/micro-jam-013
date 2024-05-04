@@ -30,14 +30,14 @@ public class PlayerCollision : MonoBehaviour
     /// <param name="collision">The Collision2D data associated with this collision.</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.contactCount != 1)
+        ContactPoint2D[] contacts = new ContactPoint2D[collision.contactCount]; ;
+        collision.GetContacts(contacts);
+
+        foreach (ContactPoint2D contact in contacts)
         {
-            Debug.Log("more than one collision");
-            return;
+            Vector3 coordinates = contact.point;
+            collision.gameObject.GetComponent<TileModifier>().DigHole(coordinates);
         }
 
-        // change the collided tile on the tilemap
-        Vector3 coordinates = collision.GetContact(0).point;
-        collision.gameObject.GetComponent<TileModifier>().DigHole(coordinates);
     }
 }
