@@ -1053,13 +1053,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1719830168376100344, guid: 8544a8210b30aad499c32a96793bcf5a, type: 3}
-      propertyPath: CounterText
-      value: 
-      objectReference: {fileID: 2034430231}
-    - target: {fileID: 3912405856769916641, guid: 8544a8210b30aad499c32a96793bcf5a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 3439638477444472989, guid: 8544a8210b30aad499c32a96793bcf5a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.105909556
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439638477444472989, guid: 8544a8210b30aad499c32a96793bcf5a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.15517324
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439638477444472989, guid: 8544a8210b30aad499c32a96793bcf5a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439638477444472989, guid: 8544a8210b30aad499c32a96793bcf5a, type: 3}
+      propertyPath: m_Maskable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8154816819774301298, guid: 8544a8210b30aad499c32a96793bcf5a, type: 3}
       propertyPath: m_Name
@@ -1131,17 +1139,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfa4a3424a570a340bafeb04191f22d7, type: 3}
---- !u!114 &2034430231 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2573634878888057180, guid: 8544a8210b30aad499c32a96793bcf5a, type: 3}
-  m_PrefabInstance: {fileID: 1635102941}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &756476152807656989
 PrefabInstance:
   m_ObjectHideFlags: 0
