@@ -18,9 +18,6 @@ public enum MudState
 
 public class PlayerCollision : MonoBehaviour
 {
-
-
-    public Tile normalTile;
     private MudState mudState = MudState.Eat;
     private SpriteRenderer spriteRenderer;
     private TileModifier tileModifier;
