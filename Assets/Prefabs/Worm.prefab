@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7605875845637652705}
   - component: {fileID: 9144752923207876318}
   - component: {fileID: 2951115018450585934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Worm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0, g: 0.9622642, b: 0.96226394, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -114,9 +114,9 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c91927ecace8e0f49b5301103cddfd40, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -140,7 +140,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalTile: {fileID: 0}
-  worm: {fileID: 0}
 --- !u!58 &2951115018450585934
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +149,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 854348926134388203}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c91927ecace8e0f49b5301103cddfd40, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
