@@ -24,10 +24,16 @@ public class Snake : MonoBehaviour
 
     private Vector2 position;
 
+    private Sprite wormBody;
+    private Sprite wormTail;
+
     // Start is called before the first frame update
     void Start()
     {
         snakeBody.Add(transform.GetChild(0).gameObject);
+        Sprite[] sprites = Resources.LoadAll<Sprite>("SpriteVerChange");
+        wormBody = sprites[0];
+        wormTail = sprites[1];
     }
 
     private void FixedUpdate()
@@ -79,7 +85,18 @@ public class Snake : MonoBehaviour
         {
             temp = Instantiate(bodyPart, snakeBody[snakeBody.Count - 1].transform.position, snakeBody[snakeBody.Count - 1].transform.rotation, transform);
         }
+        temp.GetComponent<SpriteRenderer>().sortingOrder = -snakeBody.Count;
         snakeBody.Add(temp);
-        // temp.GetComponent<MarkerManager>().ClearMarkerList();
+
+        ChangeWormSprites();
+    }
+
+    private void ChangeWormSprites()
+    {
+        if (snakeBody.Count > 2)
+        {
+            snakeBody[snakeBody.Count - 2].GetComponent<SpriteRenderer>().sprite = wormBody;
+        }
+        snakeBody[snakeBody.Count - 1].GetComponent<SpriteRenderer>().sprite = wormTail;
     }
 }
