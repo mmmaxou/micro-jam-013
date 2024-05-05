@@ -7,27 +7,26 @@ using UnityEngine;
 public class LavaSpawner : MonoBehaviour
 {
     public Object LavaParticle;
-    public int FrameBeforeSpawn = 1500;
-    public int FrameBetweenSpawn = 10;
-    private int Frame = 0;
+    public float SecondsBeforeSpawn = 3.0f;
+    public float SecondsBetweenSpawn = 0.05f;
+    public int NbLavaParticle = 500;
+    private float NextUpdateTime = .0f;
+    private float TimePassed = .0f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        NextUpdateTime = SecondsBeforeSpawn;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Frame >= FrameBeforeSpawn && (Frame-FrameBetweenSpawn) % FrameBetweenSpawn == 0)
+        while (TimePassed >= NextUpdateTime && NbLavaParticle-- > 0)
         {
-            
             Object.Instantiate(LavaParticle, this.transform.position + Random.insideUnitSphere, this.transform.rotation, this.transform);
-
-            Debug.Log("Spawned Lava");
+            NextUpdateTime = TimePassed + SecondsBetweenSpawn;  // set next spawning time
+            Debug.Log("Summon");
         }
 
-        Debug.Log("Frame");
-        Frame ++;
+        TimePassed += Time.fixedDeltaTime;
     }
 }
