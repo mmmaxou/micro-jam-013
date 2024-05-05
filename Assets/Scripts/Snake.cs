@@ -1,11 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using Unity.PlasticSCM.Editor.WebApi;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Timeline;
-using UnityEngine.UIElements;
 
 public class Snake : MonoBehaviour
 {
@@ -24,6 +18,7 @@ public class Snake : MonoBehaviour
     private Vector2 position;
 
     private Sprite wormBody;
+
     private Sprite wormTail;
 
     // Start is called before the first frame update
@@ -51,7 +46,6 @@ public class Snake : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.KeypadMinus))
             Debug.Log("-");
     }
-
 
     void SnakeMovement()
     {

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-        Screen.SetResolution(1080, 1920, true);
+        Screen.SetResolution(540, 960, true);
     }
 
     // Update is called once per frame
