@@ -19,8 +19,8 @@ public class RockStockUI : MonoBehaviour
     {
         CounterText.text = GameManager.Instance.NbRock.ToString() + " / " + GameManager.Instance.MaxNbRock.ToString();
         // Debug.Log(GameManager.Instance.NbRock / (float)GameManager.Instance.MaxNbRock);
-        // Bar.fillAmount = GameManager.Instance.NbRock / (float)GameManager.Instance.MaxNbRock;
+        Bar.fillAmount = GameManager.Instance.NbRock / (float)GameManager.Instance.MaxNbRock;
         // Bar.fillAmount = 0.5f;
-        Bar.fillAmount = (float)Math.Cos(Time.time) * 0.5f + 0.5f;
+        // Bar.fillAmount = (float)Math.Cos(Time.time) * 0.5f + 0.5f;
     }
 }
