@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7657001300704075784}
   m_Layer: 0
   m_Name: LavaCamera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,6 +401,10 @@ PrefabInstance:
     - target: {fileID: 7431949031024161643, guid: 73a05c64f7346e5418dfadbcbc0ac132, type: 3}
       propertyPath: m_Name
       value: LavaCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431949031024161643, guid: 73a05c64f7346e5418dfadbcbc0ac132, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
