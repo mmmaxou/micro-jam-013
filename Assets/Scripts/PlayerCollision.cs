@@ -13,12 +13,14 @@ public enum MudState
 {
     Eat,
     Shit,
+    Sleep,
+    Repeat,
 }
 
 
 public class PlayerCollision : MonoBehaviour
 {
-    private MudState mudState = MudState.Eat;
+    private MudState mudState = MudState.Sleep;
     private SpriteRenderer spriteRenderer;
     private TileModifier tileModifier;
     private Snake snake;
@@ -41,15 +43,31 @@ public class PlayerCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (this.mudState == MudState.Eat)
+                this.SetMudStateSleep();
+            else
+                this.SetMudStateEat();
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            if (this.mudState == MudState.Shit)
+                this.SetMudStateSleep();
+            else
+                this.SetMudStateShit();
+        }
+
         if (this.mudState == MudState.Shit)
         {
             this.ShitMud();
         }
+    }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            this.ChangeMudState();
-        }
+    private void SetMudStateSleep()
+    {
+        this.mudState = MudState.Sleep;
+        this.spriteRenderer.color = Color.green;
     }
 
     private void ChangeMudState()

@@ -9,7 +9,9 @@ public class TileModifier : MonoBehaviour
 {
     public Tile dugTile;
     public RuleTile fullTile;
-    private Tilemap grid;
+    private Grid Grid;
+    private Tilemap DirtTilemap;
+    private Tilemap BasaltTilemap;
     public HashSet<Vector3Int> tilesToPlace;
     public HashSet<Vector3Int> currentColliders;
 
@@ -20,10 +22,22 @@ public class TileModifier : MonoBehaviour
         this.tilesToPlace = new HashSet<Vector3Int>();
         this.currentColliders = new HashSet<Vector3Int>();
 
-        grid = GetComponent<Tilemap>();
-        if (grid == null)
+        Grid = this.gameObject.transform.parent.gameObject.GetComponent<Grid>();
+        if (Grid == null)
         {
-            Debug.LogException(new NullReferenceException("TileModifier: grid is null"));
+            Debug.LogException(new NullReferenceException("TileModifier: Grid is null"));
+        }
+
+        BasaltTilemap = Grid.transform.GetChild(0).gameObject.GetComponent<Tilemap>();
+        if (BasaltTilemap == null)
+        {
+            Debug.LogException(new NullReferenceException("TileModifier: BasaltTilemap is null"));
+        }
+
+        DirtTilemap = Grid.transform.GetChild(1).gameObject.GetComponent<Tilemap>();
+        if (DirtTilemap == null)
+        {
+            Debug.LogException(new NullReferenceException("TileModifier: DirtTilemap is null"));
         }
     }
 
@@ -31,14 +45,14 @@ public class TileModifier : MonoBehaviour
     void Update()
     {
 
-        HashSet<Vector3Int> toRemove = new HashSet<Vector3Int>();
+        HashSet<Vector3Int> toRemove = new HashSet<Vector3Int>(16);
 
         foreach (Vector3Int cellPosition in this.tilesToPlace)
         {
             if (!this.currentColliders.Contains(cellPosition))
             {
                 GameManager.Instance.NbRock--;
-                grid.SetTile(cellPosition, fullTile);
+                DirtTilemap.SetTile(cellPosition, fullTile);
                 toRemove.Add(cellPosition);
             }
         }
@@ -52,7 +66,7 @@ public class TileModifier : MonoBehaviour
 
     public void DigHole(Vector3 collision)
     {
-        grid.SetTile(grid.WorldToCell(collision), dugTile);
+        DirtTilemap.SetTile(DirtTilemap.WorldToCell(collision), dugTile);
         GameManager.Instance.NbRock++;
     }
 
@@ -63,10 +77,13 @@ public class TileModifier : MonoBehaviour
         currentColliders.Clear();
         foreach (Collider2D collider in colliders)
         {
-            Vector3Int cellPosition = grid.WorldToCell(collider.transform.position);
+            Vector3Int cellPosition = Grid.WorldToCell(collider.transform.position);
             currentColliders.Add(cellPosition);
 
-            if (!grid.HasTile(cellPosition))
+            bool isDirt = DirtTilemap.HasTile(cellPosition);
+            bool isBasalt = BasaltTilemap.HasTile(cellPosition);
+
+            if (!isDirt && !isBasalt)
                 tilesToPlace.Add(cellPosition);
         }
     }
