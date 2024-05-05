@@ -9,11 +9,10 @@ using UnityEngine.UIElements;
 
 public class Snake : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject bodyPart;
+    public GameObject bodyPart;
 
     [SerializeField]
-    private List<GameObject> snakeBody = new List<GameObject>(1);
+    public List<GameObject> snakeBody = new List<GameObject>(1);
 
     [SerializeField]
     private float distanceBetween = 0.8f;
@@ -72,7 +71,7 @@ public class Snake : MonoBehaviour
         }
     }
 
-    private void CreateBodyPart()
+    public void CreateBodyPart()
     {
         MarkerManager mm = snakeBody[snakeBody.Count - 1].GetComponent<MarkerManager>();
         MarkerManager.Marker marker = mm.GetFirstMarkerAtDistance(snakeBody[snakeBody.Count - 1].transform.position, distanceBetween);
@@ -85,9 +84,16 @@ public class Snake : MonoBehaviour
         {
             temp = Instantiate(bodyPart, snakeBody[snakeBody.Count - 1].transform.position, snakeBody[snakeBody.Count - 1].transform.rotation, transform);
         }
-        temp.GetComponent<SpriteRenderer>().sortingOrder = -snakeBody.Count;
+        temp.GetComponent<SpriteRenderer>().sortingOrder = 25 - snakeBody.Count;
         snakeBody.Add(temp);
 
+        ChangeWormSprites();
+    }
+
+    public void RemoveBodyPart()
+    {
+        Object.Destroy(snakeBody[^1]);
+        snakeBody.RemoveAt(snakeBody.Count - 1);
         ChangeWormSprites();
     }
 

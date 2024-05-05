@@ -21,14 +21,15 @@ public class PlayerCollision : MonoBehaviour
     private MudState mudState = MudState.Eat;
     private SpriteRenderer spriteRenderer;
     private TileModifier tileModifier;
-    private CircleCollider2D circleCollider2D;
+    private Snake snake;
+    private int mudPerSnakePart = 20;
 
     // Start is called before the first frame update
     void Start()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();
         this.tileModifier = GameObject.FindGameObjectsWithTag("GridTop").First().GetComponent<TileModifier>();
-        this.circleCollider2D = GetComponent<CircleCollider2D>();
+        this.snake = transform.parent.GetComponent<Snake>();
 
         this.SetMudStateEat();
         if (this.tileModifier == null)
@@ -65,6 +66,7 @@ public class PlayerCollision : MonoBehaviour
         this.spriteRenderer.color = Color.cyan;
         // this.circleCollider2D.enabled = false;
     }
+
     private void SetMudStateEat()
     {
         this.mudState = MudState.Eat;
@@ -100,6 +102,12 @@ public class PlayerCollision : MonoBehaviour
             else
                 break;
         }
+
+        int currentMudPerSnakePart = 1 + (GameManager.Instance.NbRock / mudPerSnakePart);
+        if (currentMudPerSnakePart > snake.snakeBody.Count)
+        {
+            snake.CreateBodyPart();
+        }
     }
 
     private void ShitMud()
@@ -107,6 +115,12 @@ public class PlayerCollision : MonoBehaviour
         if (GameManager.Instance.NbRock > 0)
         {
             this.tileModifier.PlaceDirt(this.gameObject.transform.position, this.gameObject.transform.localScale.x);
+        }
+
+        int currentMudPerSnakePart = 1 + (GameManager.Instance.NbRock / mudPerSnakePart);
+        if (currentMudPerSnakePart < snake.snakeBody.Count)
+        {
+            snake.RemoveBodyPart();
         }
     }
 

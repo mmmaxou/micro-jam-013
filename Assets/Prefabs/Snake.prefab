@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2133304660622513166}
   - component: {fileID: 2431455080298142854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SnakeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,9 @@ GameObject:
   - component: {fileID: 2300587189709687135}
   - component: {fileID: 6535780271817997401}
   - component: {fileID: 1077665306645608227}
-  m_Layer: 0
+  - component: {fileID: 6882097970062952035}
+  - component: {fileID: 8007803601487660667}
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +126,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 25
   m_Sprite: {fileID: 21300000, guid: 154bc1c90afc9cd44bff5d5c5178f28a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -146,7 +148,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 6011769612079625491}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -176,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.1
+  maxSpeed: 0.75
 --- !u!114 &1077665306645608227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +191,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41886bc5acbd5d84b8fceacc0e7214c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6882097970062952035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6011769612079625491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c140e1f11c59f4098672bbf3ac8583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &8007803601487660667
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6011769612079625491}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.64
 --- !u!1 &8271073552088198017
 GameObject:
   m_ObjectHideFlags: 0

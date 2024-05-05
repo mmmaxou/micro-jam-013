@@ -69,6 +69,5 @@ public class TileModifier : MonoBehaviour
             if (!grid.HasTile(cellPosition))
                 tilesToPlace.Add(cellPosition);
         }
-
     }
 }

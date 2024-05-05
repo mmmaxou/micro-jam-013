@@ -7,8 +7,9 @@ public class FollowMouse : MonoBehaviour
 
     Vector3 mousePosition;
     public float moveSpeed = 0.1f;
+    public float maxSpeed = 0.75f;
     Rigidbody2D rigidBody;
-    Vector2 position = new Vector2(0f, 0f);
+    Vector2 nextPosition = new Vector2(0f, 0f);
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +21,13 @@ public class FollowMouse : MonoBehaviour
     void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+        nextPosition = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+        nextPosition = Vector2.MoveTowards(transform.position, nextPosition, maxSpeed);
     }
 
     private void FixedUpdate()
     {
-        rigidBody.MovePosition(position);
+        rigidBody.MovePosition(nextPosition);
+        rigidBody.velocity = Vector2.ClampMagnitude(rigidBody.velocity, maxSpeed);
     }
 }
